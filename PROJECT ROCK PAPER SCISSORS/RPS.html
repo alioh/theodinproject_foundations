@@ -10,33 +10,48 @@
     
     
     let playerPlay = prompt("Pick Rock, Paper or Scissors:").toLowerCase();
-    
+    let playerScore = 0;
+    let computerScore = 0;
+
     function playRound(round, playerSelection, computerSelection) {
         console.log(`In round ${round}, the computer got ${computerSelection.charAt(0).toUpperCase()+computerSelection.slice(1).toLowerCase()}!`);
         if (playerSelection == computerSelection){
           return 'Draw!';
         } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+          playerScore++;
           return "You Win! Rock beats Scissors.";
         } else if (playerSelection === 'rock' && computerSelection === 'paper'){
+          computerScore++;
           return "You Lose! Paper beats Rock.";
         } else if (playerSelection === 'paper' && computerSelection === 'scissors'){
+          computerScore++;
           return "You Lose! Scissors beats Paper.";
         } else if (playerSelection === 'paper' && computerSelection === 'rock'){
+          playerScore++;
           return "You Win! Paper beats Rock.";
         } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
-          return "You Win! Scissors beats Rock.";
+          computerScore++;
+          return "You Lose! Rock beats Scissors.";
         } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+          playerScore++;
           return "You Win! Scissors beats Paper.";
         }
     }
 
     function game(){
       if (picks.includes(playerPlay)) {
-        alert("Check the console!");// 
         console.log(`You picked ${playerPlay.charAt(0).toUpperCase()+playerPlay.slice(1).toLowerCase()}!`);
         for(round=0;round<5;round++){
           let computerPlay = picks[Math.floor(Math.random() * 3)];
           console.log(playRound(round+1, playerPlay,computerPlay));
+        }
+        let results = `You: ${playerScore}           Computer: ${computerScore}\nCheck more detailed results of each round in the console!`;
+        if (playerScore < computerScore) {
+          alert(`You Lost! better luck next time! 😞. \n${results}`);
+        } else if (playerScore > computerScore ) {
+          alert(`Winner Winner Chicken Dinner 🐔😂. \n${results}`);
+        } else {
+          alert(`Draw! Everyone is happy 😀. \n${results}`)
         }
       } else {
         alert("Please pick either Rock, Paper or Scissors");
@@ -44,6 +59,7 @@
     }
 
     game()
+    
     
   </script>
 </body>
