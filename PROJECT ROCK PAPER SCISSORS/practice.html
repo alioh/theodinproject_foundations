@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PROJECT ROCK PAPER SCISSORS</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    let picks = ["rock", "paper", "scissors"];
+    
+    
+    let playerPlay = prompt("Pick Rock, Paper or Scissors:").toLowerCase();
+    
+    function playRound(round, playerSelection, computerSelection) {
+        console.log(`In round ${round}, the computer got ${computerSelection.charAt(0).toUpperCase()+computerSelection.slice(1).toLowerCase()}!`);
+        if (playerSelection == computerSelection){
+          return 'Draw!';
+        } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+          return "You Win! Rock beats Scissors.";
+        } else if (playerSelection === 'rock' && computerSelection === 'paper'){
+          return "You Lose! Paper beats Rock.";
+        } else if (playerSelection === 'paper' && computerSelection === 'scissors'){
+          return "You Lose! Scissors beats Paper.";
+        } else if (playerSelection === 'paper' && computerSelection === 'rock'){
+          return "You Win! Paper beats Rock.";
+        } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
+          return "You Win! Scissors beats Rock.";
+        } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+          return "You Win! Scissors beats Paper.";
+        }
+    }
+
+    function game(){
+      if (picks.includes(playerPlay)) {
+        alert("Check the console!");// 
+        console.log(`You picked ${playerPlay.charAt(0).toUpperCase()+playerPlay.slice(1).toLowerCase()}!`);
+        for(round=0;round<5;round++){
+          let computerPlay = picks[Math.floor(Math.random() * 3)];
+          console.log(playRound(round+1, playerPlay,computerPlay));
+        }
+      } else {
+        alert("Please pick either Rock, Paper or Scissors");
+      }
+    }
+
+    game()
+    
+  </script>
+</body>
+</html>
