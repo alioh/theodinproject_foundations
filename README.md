@@ -1,2 +1,2 @@
-# theodinproject_foundations
-my practice for The Odin Project Foundations Course
+# The Odin Project: Foundations
+my practice for [The Odin Project Foundations Path](https://www.theodinproject.com/paths/foundations)
