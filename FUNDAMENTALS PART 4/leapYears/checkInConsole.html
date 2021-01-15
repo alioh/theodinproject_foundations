@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FUNDAMENTALS PART 4</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    const leapYears = function(year) {
+      if((year % 4 ) == 0 ){
+        if(((year % 100 ) == 0) && ((year % 400 ) == 0)){
+          return true;
+        } else if((year % 100 ) == 0) {
+          return false;
+        } else {
+          return true;
+        }}
+        else {
+          return false;
+      }
+    }
+
+console.log(leapYears(1996));
+  </script>
+</body>
+</html>

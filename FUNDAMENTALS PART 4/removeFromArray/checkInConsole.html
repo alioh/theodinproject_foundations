@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FUNDAMENTALS PART 4</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    const removeFromArray = function(...args) {
+      let toRemove = args.slice(1);
+      let finalResult = [];
+      for(i=0;i<args[0].length;i++){
+        if(!toRemove.includes(args[0][i])){
+          finalResult.push(args[0][i]);
+        }
+      }
+      return finalResult;
+}
+
+console.log(removeFromArray([1, 2, 3, 4], 3, 2));
+  </script>
+</body>
+</html>
