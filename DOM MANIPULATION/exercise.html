@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM MANIPULATION</title>
+  <meta charset="UTF-8"/>
+</head>
+  <body>
+    <h1>
+      THE TITLE OF YOUR WEBPAGE
+    </h1>
+    <div id="container">
+      <div id='gertrude' class="content">
+        This is the glorious text-content!
+      </div>
+    </div>
+    <br>
+    <div>
+      <button onclick="alert('Hello World')">Click Me</button>
+      <button id="btn">Click Me</button>
+    </div>
+  <script>
+  const container = document.querySelector('#container');
+
+  const p_red = document.createElement('p');
+  p_red.style.color = 'red';
+  p_red.textContent = 'Hey I’m red!';
+  container.appendChild(p_red);
+
+  const h3_blue = document.createElement('h3');
+  h3_blue.style.color = 'blue';
+  h3_blue.textContent = 'I’m a blue h3!';
+  container.appendChild(h3_blue);
+
+  const div = document.createElement('div');
+  div.setAttribute('style', 'border-style: solid ; background: #FFD1FF');
+  
+
+  const h1 = document.createElement('h1');
+  h1.textContent = 'I’m in a div';
+  div.appendChild(h1);
+
+  const p_too = document.createElement('p');
+  p_too.textContent = 'ME TOO!';
+  div.appendChild(p_too);
+
+  container.appendChild(div);
+
+  const btn = document.querySelector('#btn');
+  btn.onclick = () => alert("Hello World");
+
+  btn.addEventListener('click', function (e) {
+  console.log(e);
+});
+  </script>
+  </body>
+
+  
+</html>
