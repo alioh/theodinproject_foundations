@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PROJECT ROCK PAPER SCISSORS</title>
+  <meta charset="UTF-8"/>
+  <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+  <!--Replace with your tailwind.css once created-->
+  <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+  <div class="main-title my-8 content-center">
+  
+  <h1 class="font-bold text-2xl text-center">Choose Wisely!</h1>
+    
+  </div>
+  <div class="flex justify-center">
+  <button id="btn_rock" class="bg-blue-500 rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600 mr-1">
+    🗿
+  </button>
+  <button id="btn_paper" class="bg-blue-500 rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600 mr-1">
+    📄
+  </button>
+  <button id="btn_scissors" class="bg-blue-500 rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600 mr-3">
+    ✂
+  </button>
+  
+  </div>
+  <div class="main-title my-8 content-center">
+  
+    <p id="result"></p>
+  </div>
+  
+
+  <script>
+    let picks = ["rock", "paper", "scissors"];
+    
+    let btn_rock = document.querySelector('#btn_rock');
+    let btn_paper = document.querySelector('#btn_paper');
+    let btn_scissors = document.querySelector('#btn_scissors');
+
+    btn_rock.addEventListener('click', () => {
+      let computerPlay = picks[Math.floor(Math.random() * 3)]
+      const result = document.querySelector('#result');
+      result.innerHTML="";
+      const h2 = document.createElement('h2');
+      const h22 = document.createElement('h2');
+      h2.textContent = `Computer picked ${computerPlay}`;
+      h22.textContent = `${playRound('rock', computerPlay)}`;
+      h2.setAttribute('class', "font-bold text-2xl text-center");
+      h22.setAttribute('class', "font-bold text-2xl text-center");
+      result.appendChild(h2);
+      result.appendChild(h22);
+    });
+
+    btn_paper.addEventListener('click', () => {
+      let computerPlay = picks[Math.floor(Math.random() * 3)]
+      const result = document.querySelector('#result');
+      result.innerHTML="";
+      const h2 = document.createElement('h2');
+      const h22 = document.createElement('h2');
+      h2.textContent = `Computer picked ${computerPlay}`;
+      h22.textContent = `${playRound('paper', computerPlay)}`;
+      h2.setAttribute('class', "font-bold text-2xl text-center");
+      h22.setAttribute('class', "font-bold text-2xl text-center");
+      result.appendChild(h2);
+      result.appendChild(h22);
+    });
+
+    btn_scissors.addEventListener('click', () => {
+    let computerPlay = picks[Math.floor(Math.random() * 3)]
+    const result = document.querySelector('#result');
+    result.innerHTML="";
+    const h2 = document.createElement('h2');
+    const h22 = document.createElement('h2');
+    h2.textContent = `Computer picked ${computerPlay}`;
+    h22.textContent = `${playRound('scissors', computerPlay)}`;
+    h2.setAttribute('class', "font-bold text-2xl text-center");
+    h22.setAttribute('class', "font-bold text-2xl text-center");
+    result.appendChild(h2);
+    result.appendChild(h22);
+  });
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection == computerSelection){
+          return 'Draw!';
+        } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+          return "You Win! Rock beats Scissors.";
+        } else if (playerSelection === 'rock' && computerSelection === 'paper'){
+          return "You Lose! Paper beats Rock.";
+        } else if (playerSelection === 'paper' && computerSelection === 'scissors'){
+          return "You Lose! Scissors beats Paper.";
+        } else if (playerSelection === 'paper' && computerSelection === 'rock'){
+          return "You Win! Paper beats Rock.";
+        } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
+          return "You Lose! Rock beats Scissors.";
+        } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+          return "You Win! Scissors beats Paper.";
+        }
+    }
+
+  </script>
+</body>
+</html>
