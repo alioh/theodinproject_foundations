@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FUNDAMENTALS PART 5</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+
+  <!-- https://javascript.info/object#hello-object -->
+
+    let user = {
+      name: "John",
+      surname: "Smith",
+    };
+
+    console.log(user.name)
+
+    user.name = "Pete";
+    console.log(user.name)
+
+    delete user.name;
+    console.log(user.name)
+
+
+  <!-- https://javascript.info/object#check-for-emptiness -->
+
+  let schedule = {};
+
+  function isEmpty(obj) {
+    for (let key in obj) {
+      return false;
+    };
+    return true;
+  }
+  
+  alert( isEmpty(schedule) ); // true
+
+  schedule["8:30"] = "get up";
+  
+  alert( isEmpty(schedule) ); // false
+
+
+  <!-- https://javascript.info/object#sum-object-properties -->
+
+  let salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
+  }
+  let total_salaries = 0;
+  for (let key in salaries){
+    total_salaries += salaries[key];
+  }
+
+  console.log(total_salaries);
+
+
+  <!-- https://javascript.info/object#multiply-numeric-property-values-by-2 -->
+
+  let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+    };
+  
+  console.log(menu);
+
+    let multiplyNumeric = (num) => num * 2;
+
+    for (let key in menu){
+        if (typeof menu[key] === 'number'){
+            menu[key] = multiplyNumeric(menu[key]);
+        }
+    }
+
+    console.log(menu);
+  </script>
+</body>
+</html>
